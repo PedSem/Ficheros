@@ -7,7 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         PrintWriter salida = null;
         try {
-            salida = new PrintWriter("/home/usuario/Documentos/datos.txt");
+            salida = new PrintWriter("/home/usuario/Documentos/enteros.txt");
             String cadena;
             System.out.println("Introduce texto. Para acabar introduce la cadena FIN:");
             cadena = sc.nextLine();
