@@ -1,13 +1,12 @@
 package Ejercicios;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class ejercicio5 {
     public static void main(String[] args) {
         ejercicio5 ejercicio5=new ejercicio5();
-        ejercicio5.Ordenarfichero();
+        ejercicio5.pruebaordenarfichero();
 
     }
     public void Ordenarfichero(){
@@ -28,10 +27,45 @@ public class ejercicio5 {
             String[]datos=cadena.split("");
             Arrays.sort(datos);
             System.out.println(Arrays.toString(datos));
-            File file=new File("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
         }catch (FileNotFoundException e){
             System.out.println(e.getMessage());
         }
 
+    }
+    public void pruebaordenarfichero(){
+        Scanner scanner=new Scanner(System.in);
+        List<String>ordenar=new ArrayList<>();
+        String cadena="";
+        Scanner entrada;
+        try{
+            FileWriter filewriter=new FileWriter("/home/usuario/Documentos/Ejerciciosficheros/Sinordenar.txt");
+            BufferedWriter bufferedWriter=new BufferedWriter(filewriter);
+            System.out.println("Introduce texto.FIN para salir");
+            cadena=scanner.nextLine();
+            while (!cadena.equalsIgnoreCase("Fin")) {
+                bufferedWriter.write(cadena);
+                bufferedWriter.newLine();
+                cadena=scanner.nextLine();
+                ordenar.add(cadena);
+            }
+            bufferedWriter.close();
+            FileReader fileReader=new FileReader("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
+            BufferedReader bufferedReader=new BufferedReader(fileReader);
+             cadena=bufferedReader.readLine();
+            while (cadena!=null){
+                Collections.sort(ordenar);
+                String[]datos=cadena.split("//s+");
+                Arrays.sort(datos);
+                cadena=bufferedReader.readLine();
+            }
+            bufferedReader.close();
+            for(String ordeno:ordenar){
+                System.out.println(ordeno);
+            }
+
+
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
