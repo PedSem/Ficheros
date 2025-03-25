@@ -25,17 +25,10 @@ public class ejercicio5 {
                 cadena=scanner.nextLine();
             }
             printWriter.close();
-            File file=new File("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
-            String[]datos=cadena.split(cadena);
+            String[]datos=cadena.split("");
             Arrays.sort(datos);
-            for(int i=0;i<cadena.length();i++){
-                datos[i]=datos[i+1];
-                datos[i+1]=cadena;
-                cadena=datos[i];
-            }
-            System.out.println(cadena);
-
-
+            System.out.println(Arrays.toString(datos));
+            File file=new File("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
         }catch (FileNotFoundException e){
             System.out.println(e.getMessage());
         }
