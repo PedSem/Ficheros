@@ -6,83 +6,53 @@ import java.util.*;
 public class ejercicio5 {
     public static void main(String[] args) {
         ejercicio5 ejercicio5=new ejercicio5();
-        ejercicio5.prueba();
+        ejercicio5.Ordenarfichero();
 
     }
     public void Ordenarfichero(){
-        PrintWriter printWriter=null;
-        FileReader fileReader=null;
-        BufferedReader bufferedReader=null;
-        Scanner scanner=new Scanner(System.in);
-        try{
-            printWriter=new PrintWriter("/home/usuario/Documentos/Ejerciciosficheros/Sinordenar.txt");
-            String cadena;
-            System.out.println("Introduce texto.Fin para acabar");
-            cadena=scanner.nextLine();
-            while (!cadena.equalsIgnoreCase("Fin")){
-                printWriter.println(cadena);
-                cadena=scanner.nextLine();
-            }
-            printWriter.close();
-            String[]datos=cadena.split("");
-            Arrays.sort(datos);
-            System.out.println(Arrays.toString(datos));
-        }catch (FileNotFoundException e){
-            System.out.println(e.getMessage());
-        }
+        String inputFile = "C:\\Users\\PEDRO\\Downloads\\sinordenar.txt";
+        String outputFile = "C:\\Users\\PEDRO\\Downloads\\ordenar.txt";
 
-    }
-    public void pruebaordenarfichero(){
-        Scanner scanner=new Scanner(System.in);
-        List<String>ordenar=new ArrayList<>();
-        String cadena="";
-        Scanner entrada;
+        List<String> palabras = new ArrayList<>();
+        BufferedReader bufferedReader=null;
+        BufferedWriter bufferedWriter=null;
+        FileReader fileReader=null;
         try{
-            FileWriter filewriter=new FileWriter("/home/usuario/Documentos/Ejerciciosficheros/Sinordenar.txt");
-            BufferedWriter bufferedWriter=new BufferedWriter(filewriter);
-            System.out.println("Introduce texto.FIN para salir");
-            cadena=scanner.nextLine();
-            while (!cadena.equalsIgnoreCase("Fin")) {
-                bufferedWriter.write(cadena);
-                bufferedWriter.newLine();
-                cadena=scanner.nextLine();
-                ordenar.add(cadena);
-            }
-            bufferedWriter.close();
-            FileReader fileReader=new FileReader("/home/usuario/Documentos/Ejerciciosficheros/p.txt");
-            BufferedReader bufferedReader=new BufferedReader(fileReader);
-             cadena=bufferedReader.readLine();
+            fileReader=new FileReader(inputFile);
+            bufferedReader=new BufferedReader(fileReader);
+            String cadena= bufferedReader.readLine();
             while (cadena!=null){
-                Collections.sort(ordenar);
-                String[]datos=cadena.split("//s+");
-                Arrays.sort(datos);
+                String[]cadenas=cadena.split(" ");
+                for(String palabra:cadenas){
+                    if(!palabra.isEmpty()){
+                        palabras.add(palabra);
+                    }
+
+                }
                 cadena=bufferedReader.readLine();
             }
-            bufferedReader.close();
-            for(String ordeno:ordenar){
-                System.out.println(ordeno);
-            }
 
+            bufferedReader.close();
+            fileReader.close();
 
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
-    }
-    public void prueba(){
-        String cadena;
+        Collections.sort(palabras);
         try{
-
-            FileReader fileReader=new FileReader("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
-            BufferedReader bufferedReader=new BufferedReader(fileReader);
-            cadena=bufferedReader.readLine();
-            while (cadena!=null){
-                System.out.println(cadena);
-                cadena= bufferedReader.readLine();
+            FileWriter fileWriter=new FileWriter(outputFile);
+            bufferedWriter=new BufferedWriter(fileWriter);
+            for(String palabra:palabras){
+                bufferedWriter.write(palabra);
+                bufferedWriter.newLine();
             }
-            bufferedReader.close();
+            bufferedWriter.close();
+            fileWriter.close();
+
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
+
     }
 
 }
