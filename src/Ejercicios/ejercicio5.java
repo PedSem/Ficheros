@@ -6,7 +6,7 @@ import java.util.*;
 public class ejercicio5 {
     public static void main(String[] args) {
         ejercicio5 ejercicio5=new ejercicio5();
-        ejercicio5.pruebaordenarfichero();
+        ejercicio5.prueba();
 
     }
     public void Ordenarfichero(){
@@ -49,7 +49,7 @@ public class ejercicio5 {
                 ordenar.add(cadena);
             }
             bufferedWriter.close();
-            FileReader fileReader=new FileReader("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
+            FileReader fileReader=new FileReader("/home/usuario/Documentos/Ejerciciosficheros/p.txt");
             BufferedReader bufferedReader=new BufferedReader(fileReader);
              cadena=bufferedReader.readLine();
             while (cadena!=null){
@@ -68,4 +68,21 @@ public class ejercicio5 {
             System.out.println(e.getMessage());
         }
     }
+    public void prueba(){
+        String cadena;
+        try{
+
+            FileReader fileReader=new FileReader("/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt");
+            BufferedReader bufferedReader=new BufferedReader(fileReader);
+            cadena=bufferedReader.readLine();
+            while (cadena!=null){
+                System.out.println(cadena);
+                cadena= bufferedReader.readLine();
+            }
+            bufferedReader.close();
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
