@@ -11,15 +11,14 @@ public class ejercicio6 {
     }
     public void contar(){
         String inputfile="/home/usuario/Documentos/Ejerciciosficheros/contar.txt";
+        String input="C:\\Users\\PEDRO\\Downloads\\contar.txt";
        String cadena;
        int contvocal=0,contconsonante=0,contnumeros=0,contalfa=0;
-        FileReader fileReader=null;
-        FileWriter fileWriter=null;
-        BufferedReader bufferedReader=null;
-        BufferedWriter bufferedWriter=null;
+        FileReader fileReader;
+        BufferedReader bufferedReader;
         Scanner entrada;
        try{
-           fileReader=new FileReader(inputfile);
+           fileReader=new FileReader(input);
            bufferedReader=new BufferedReader(fileReader);
            entrada=new Scanner(bufferedReader);
            while (entrada.hasNext()){
@@ -35,6 +34,9 @@ public class ejercicio6 {
                    }
                    if(Character.isDigit(cadena.charAt(i))){
                        contnumeros++;
+                       while (i<cadena.length() && Character.isDigit(cadena.charAt(i))){
+                           i++;
+                       }
                    }
                }
                 contconsonante=contalfa-contvocal;
