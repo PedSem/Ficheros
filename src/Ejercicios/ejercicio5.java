@@ -10,8 +10,8 @@ public class ejercicio5 {
 
     }
     public void Ordenarfichero(){
-        String inputFile = "C:\\Users\\PEDRO\\Downloads\\sinordenar.txt";
-        String outputFile = "C:\\Users\\PEDRO\\Downloads\\ordenar.txt";
+        String inputFile = "/home/usuario/Documentos/Ejerciciosficheros/Sinordenar.txt";
+        String outputFile = "/home/usuario/Documentos/Ejerciciosficheros/Ordenar.txt";
 
         List<String> palabras = new ArrayList<>();
         BufferedReader bufferedReader=null;
