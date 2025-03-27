@@ -15,12 +15,13 @@ public class ejercicio8 {
         FileReader fileReader;
         BufferedReader bufferedReader;
         int contarocurrencias=0;
-        String nombre="tal";
+        String nombre="que";
         Scanner entrada;
         String cadena;
+        String inputlinux="/home/usuario/Documentos/Ejerciciosficheros/ocurrencias.txt";
         String input="C:\\Users\\PEDRO\\Downloads\\ocurrencias.txt.txt";
         try{
-            fileReader=new FileReader(input);
+            fileReader=new FileReader(inputlinux);
             bufferedReader=new BufferedReader(fileReader);
             entrada=new Scanner(bufferedReader);
             while (entrada.hasNext()){
