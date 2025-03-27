@@ -10,6 +10,7 @@ public class EjemploOutput {
         FileOutputStream fos = null;
         DataOutputStream salida = null;
         int n;
+        double n2;
         try {
             fos = new FileOutputStream("dato.txt");
             salida = new DataOutputStream(fos);
@@ -19,6 +20,13 @@ public class EjemploOutput {
                 salida.writeInt(n); //se escribe el número entero en el fichero
                 System.out.print("Introduce número entero. -1 para acabar: ");
                 n = sc.nextInt();
+            }
+            System.out.print("Introduce un numero double. -1 para acabar:");
+            n2=sc.nextDouble();
+            while (n2!=-1){
+                salida.writeDouble(n2);
+                System.out.print("Introduce un numero double. -1 para acabar:");
+                n2=sc.nextDouble();
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());

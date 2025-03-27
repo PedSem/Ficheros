@@ -7,12 +7,17 @@ public class OutputRead {
         FileInputStream fis = null;
         DataInputStream entrada = null;
         int n;
+        double n2;
         try {
             fis = new FileInputStream("dato.txt");
             entrada = new DataInputStream(fis);
             while (entrada.available()>0) {
-                n = entrada.readInt(); //se lee un entero del fichero
-                System.out.println(n); //se muestra en pantalla
+                n = entrada.readInt();
+                n2=entrada.readDouble();
+                //se lee un entero del fichero
+                System.out.println(n);
+                //se muestra en pantalla
+                System.out.println(n2);
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
