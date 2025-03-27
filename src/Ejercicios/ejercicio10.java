@@ -17,17 +17,19 @@ public class ejercicio10 {
         String DNI,nombre;
         int edad,sueldo;
         try{
-            fileInputStream=new FileInputStream("/home/usuario/Documentos/Ejerciciosficheros/DNI.txt");
+            fileInputStream=new FileInputStream("DNI.txt");
             dataInputStream=new DataInputStream(fileInputStream);
             while (dataInputStream.available()>0){
-                DNI= String.valueOf(dataInputStream.read());
-                nombre=String.valueOf(dataInputStream.read());
-                edad=dataInputStream.readInt();
-                sueldo=dataInputStream.readInt();
-                System.out.println(DNI);
-                System.out.println(nombre);
-                System.out.println(edad);
-                System.out.println(sueldo);
+                    DNI=dataInputStream.readUTF();
+                    nombre=dataInputStream.readUTF();
+                    edad=dataInputStream.readInt();
+                    sueldo=dataInputStream.readInt();
+                if(sueldo>20000){
+                    System.out.println(DNI);
+                    System.out.println(nombre);
+                    System.out.println(edad);
+                    System.out.println(sueldo);
+                }
             }
 
 

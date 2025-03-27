@@ -17,31 +17,30 @@ public class ejercicio9 {
         DataOutputStream dataOutputStream=null;
         String DNI,nombre;
         int edad,sueldo;
+        System.out.print("Introduce la cantidad de empleados:");
+        int nempleados=scanner.nextInt();
+        scanner.nextLine();
+
         try{
-            fileOutputStream=new FileOutputStream("/home/usuario/Documentos/Ejerciciosficheros/DNI.txt");
+            fileOutputStream=new FileOutputStream("DNI.txt");
             dataOutputStream=new DataOutputStream(fileOutputStream);
-            System.out.print("Introduce el DNI:");
-            DNI=scanner.nextLine();
-            System.out.print("Introduce el nombre:");
-            nombre=scanner.nextLine();
-            System.out.print("Introduce la edad:");
-            edad=scanner.nextInt();
-            System.out.print("Introduce el sueldo:");
-            sueldo=scanner.nextInt();
-            dataOutputStream.writeInt(edad);
-            dataOutputStream.writeInt(sueldo);
-            for(int i=0;i<DNI.length();i++){
-                if(Character.isLetterOrDigit(DNI.charAt(i))){
-                    dataOutputStream.writeChar(DNI.charAt(i));
-                }
+            System.out.println("Hay " + nempleados + " en la empresa");
+            for(int i=1;i<=nempleados;i++){
+                System.out.println("Empleado " + i);
+                System.out.print("Introduce el DNI:");
+                DNI=scanner.nextLine();
+                System.out.print("Introduce el nombre:");
+                nombre=scanner.nextLine();
+                System.out.print("Introduce la edad:");
+                edad=scanner.nextInt();
+                System.out.print("Introduce el sueldo:");
+                sueldo=scanner.nextInt();
+                scanner.nextLine();
+                dataOutputStream.writeUTF(DNI);
+                dataOutputStream.writeUTF(nombre);
+                dataOutputStream.writeInt(edad);
+                dataOutputStream.writeInt(sueldo);
             }
-            for(int i=0;i<nombre.length();i++){
-                if(Character.isLetter(nombre.charAt(i))){
-                    dataOutputStream.writeChar(nombre.charAt(i));
-                }
-            }
-            dataOutputStream.writeInt(edad);
-            dataOutputStream.writeInt(sueldo);
             fileOutputStream.close();
             dataOutputStream.close();
         }catch (IOException e){
