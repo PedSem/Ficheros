@@ -1,6 +1,5 @@
 package Ejercicios;
 
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -24,16 +23,13 @@ public class ejercicio10 {
                     nombre=dataInputStream.readUTF();
                     edad=dataInputStream.readInt();
                     sueldo=dataInputStream.readInt();
-                if(sueldo>20000){
+                if(sueldo>2000){
                     System.out.println("DNI:" + DNI);
                     System.out.println("Nombre:" +nombre);
                     System.out.println("Edad:" + edad);
                     System.out.println("Sueldo:" + sueldo);
                 }
             }
-
-
-
         }catch (IOException e){
             System.out.println(e.getMessage());
         }

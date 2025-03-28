@@ -2,12 +2,10 @@ package ejercicios9y10;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
-
-
 public class LecturaEmpleados {
     public static void main(String[] args) {
         LecturaEmpleados lecturaEmpleados=new LecturaEmpleados();
-        File file=new File("DNI.txt");
+        File file=new File("/home/usuario/Documentos/Ejerciciosficheros/DNI.txt");
         lecturaEmpleados.LeerEmpleados(file);
 
     }
@@ -24,13 +22,10 @@ public class LecturaEmpleados {
                         System.out.println("Sueldo:" + empleados.getSueldo());
                        System.out.println();
                     }
-
-
             }
             fileInputStream.close();
         }catch (Exception e){
            e.printStackTrace();
         }
-
     }
 }
