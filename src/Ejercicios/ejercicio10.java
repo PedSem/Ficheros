@@ -25,10 +25,10 @@ public class ejercicio10 {
                     edad=dataInputStream.readInt();
                     sueldo=dataInputStream.readInt();
                 if(sueldo>20000){
-                    System.out.println(DNI);
-                    System.out.println(nombre);
-                    System.out.println(edad);
-                    System.out.println(sueldo);
+                    System.out.println("DNI:" + DNI);
+                    System.out.println("Nombre:" +nombre);
+                    System.out.println("Edad:" + edad);
+                    System.out.println("Sueldo:" + sueldo);
                 }
             }
 

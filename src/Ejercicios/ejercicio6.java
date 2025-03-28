@@ -18,7 +18,7 @@ public class ejercicio6 {
         BufferedReader bufferedReader;
         Scanner entrada;
        try{
-           fileReader=new FileReader(input);
+           fileReader=new FileReader(inputfile);
            bufferedReader=new BufferedReader(fileReader);
            entrada=new Scanner(bufferedReader);
            while (entrada.hasNext()){

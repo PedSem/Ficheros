@@ -13,8 +13,8 @@ public class ejercicio9 {
     }
     public void DNI(){
         Scanner scanner=new Scanner(System.in);
-        FileOutputStream fileOutputStream=null;
-        DataOutputStream dataOutputStream=null;
+        FileOutputStream fileOutputStream;
+        DataOutputStream dataOutputStream;
         String DNI,nombre;
         int edad,sueldo;
         System.out.print("Introduce la cantidad de empleados:");
