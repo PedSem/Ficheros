@@ -6,13 +6,14 @@ import java.util.List;
 
 public class LecturaJugadores {
     public static void main(String[] args) {
-        List<Jugadores>jugadores=new ArrayList<>();
         try{
             FileReader fileReader=new FileReader("C:\\Users\\PEDRO\\Downloads\\jugadores.txt");
             BufferedReader bufferedReader=new BufferedReader(fileReader);
             FileWriter fileWriter=new FileWriter("C:\\Users\\PEDRO\\Downloads\\alojados.txt");
             BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
             String cadena= bufferedReader.readLine();
+            bufferedWriter.write("Lista de jugadores Benidorm Chess Open 2024");
+            bufferedWriter.newLine();
             while (cadena!=null){
                 String[]cadenas=cadena.split(";");
                 if(cadenas.length>=7){
