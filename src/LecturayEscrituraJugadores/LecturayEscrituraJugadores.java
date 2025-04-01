@@ -1,4 +1,4 @@
-package LecturaJugadores;
+package LecturayEscrituraJugadores;
 
 import java.io.*;
 
