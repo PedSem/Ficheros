@@ -1,15 +1,13 @@
 package LecturaJugadores;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class LecturaJugadores {
+public class LecturayEscrituraJugadores {
     public static void main(String[] args) {
         try{
-            FileReader fileReader=new FileReader("C:\\Users\\PEDRO\\Downloads\\jugadores.txt");
+            FileReader fileReader=new FileReader("/home/usuario/Descargas/jugadores.txt");
             BufferedReader bufferedReader=new BufferedReader(fileReader);
-            FileWriter fileWriter=new FileWriter("C:\\Users\\PEDRO\\Downloads\\alojados.txt");
+            FileWriter fileWriter=new FileWriter("/home/usuario/Descargas/alojados.txt");
             BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
             String cadena= bufferedReader.readLine();
             bufferedWriter.write("Lista de jugadores Benidorm Chess Open 2024");
@@ -24,7 +22,6 @@ public class LecturaJugadores {
                         bufferedWriter.write(ran + ";" + nombrejugador);
                         bufferedWriter.newLine();
                     }
-
                 }
                 cadena= bufferedReader.readLine();
             }
